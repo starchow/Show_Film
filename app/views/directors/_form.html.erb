@@ -1,0 +1,31 @@
+<%= form_for @director, :validate => true, :html => {:multipart => true} do |f| %>
+  <% if @director.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@director.errors.count, "error") %> prohibited this director from being saved:</h2>
+
+      <ul>
+      <% @director.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %><br />
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %><br />
+    <%= f.hidden_field :retained_image %>
+    <%= f.label :remove_image %>
+    <%= f.check_box :remove_image %><br />
+    <%= image_tag @director.image.thumb('100x100').url if @director.image_uid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<%= form_for @actor, :validate => true,:html => {:multipart => true} do |f| %>
+  <% if @actor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@actor.errors.count, "error") %> prohibited this actor from being saved:</h2>
+
+      <ul>
+      <% @actor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+    <%= f.hidden_field :retained_image %>
+    <%= f.check_box :remove_image %>
+    <%= f.text_field :image_url %>
+    <%= image_tag @actor.image.thumb('100x100').url if @actor.image_uid %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

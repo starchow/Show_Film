@@ -1,5 +1,4 @@
 require File.expand_path('../boot', __FILE__)
-
 require 'rails/all'
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -38,5 +37,12 @@ module Project
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.middleware.insert 0, 'Dragonfly::Middleware', :images
+    config.middleware.insert_before 'Dragonfly::Middleware', 'Rack::Cache', {
+      :verbose     => true,
+      :metastore   => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/meta"),
+      :entitystore => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/body")
+    }
   end
 end

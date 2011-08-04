@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @film.inspect %>
+</p>
+
+<p>
+  <b>Release day:</b>
+  <%= @film.release_day %>
+</p>
+
+<p>
+  <b>Plot:</b>
+  <%= @film.plot %>
+</p>
+
+<p>
+  <b>Runtime:</b>
+  <%= @film.runtime %>
+</p>
+
+<p>
+  <b>Overview:</b>
+  <%= @film.overview %>
+</p>
+
+<%= link_to 'Edit', edit_film_path(@film) %> |
+<%= link_to 'Back', films_path %>

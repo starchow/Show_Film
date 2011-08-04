@@ -1,0 +1,32 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  release_day: 2011-08-01
+  plot: MyText
+  runtime: 1
+  overview: MyText
+  imdb_id: MyString
+
+two:
+  title: MyString
+  release_day: 2011-08-01
+  plot: MyText
+  runtime: 1
+  overview: MyText
+  imdb_id: MyString
+
+# == Schema Information
+#
+# Table name: films
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  release_day :date
+#  plot        :text
+#  runtime     :integer
+#  overview    :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

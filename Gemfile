@@ -5,8 +5,13 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'#, '~> 0.2.6'
-
+gem 'sqlite3'#, '~> 0.2.6'
+gem 'jquery-rails'
+gem 'will_paginate'
+gem 'client_side_validations'
+gem 'annotate'
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly'
 # Use unicorn as the web server
 # gem 'unicorn'
 
